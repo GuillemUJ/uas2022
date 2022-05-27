@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <!-- Bootstrap + Ollie main styles -->
+        <link rel="stylesheet" href="../assets/css/ollie.css">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 1323px;
+            height: 852px;
+        }
+        body {
+        padding: 0;
+        margin: 0;
+        }
+        html, body, #map {
+        height: 100%;
+        width: 100%;
+        }
+        </style>
+        <title>UAS 2022</title>
+    </head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+        <nav id="scrollspy" class="navbar navbar-light bg-light navbar-expand-lg fixed-top" data-spy="affix" data-offset-top="20">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="../assets/imgs/logo_tr-01.png" alt="" class="brand-img"></a>
+                <h4> <b>Aa River Renaturation</b> | Data explorer </h4>
+    
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="2d.html">2D</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#theproject">3D</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#imagery">Commercial Software</a>
+                        </li>
+                        <li class="nav-item ml-0 ml-lg-4">
+                            <a class="nav-link btn btn-primary" href="main.html">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[51.94372788119211,7.568682304857785],[51.94680129530808,7.576277250718752]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_GoogleSatellite_0');
+        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
+        var layer_GoogleSatellite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_GoogleSatellite_0;
+        map.addLayer(layer_GoogleSatellite_0);
+        map.createPane('pane_Aa_2022_RGB_1');
+        map.getPane('pane_Aa_2022_RGB_1').style.zIndex = 401;
+        var img_Aa_2022_RGB_1 = 'data/Aa_2022_RGB_1.png';
+        var img_bounds_Aa_2022_RGB_1 = [[51.94338274781316,7.56961741126227],[51.9470738168541,7.575163927538959]];
+        var layer_Aa_2022_RGB_1 = new L.imageOverlay(img_Aa_2022_RGB_1,
+                                              img_bounds_Aa_2022_RGB_1,
+                                              {pane: 'pane_Aa_2022_RGB_1'});
+        bounds_group.addLayer(layer_Aa_2022_RGB_1);
+        map.addLayer(layer_Aa_2022_RGB_1);
+        setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>
