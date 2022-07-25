@@ -25,7 +25,7 @@ app.loadJSONObject({
         "clickable": true,
         "visible": true,
         "type": "pc",
-        "url": "file:///home/andre/MasterGeoTech/UASFAR/Zoo High /lidars/terra_las/ept_cloud92d564295bd39479/ept.json",
+        "url": "https://geo-uas-web.uni-muenster.de/data/zoohigh/lidars/terra_las/ept_cloud92d564295bd39479/ept.json",
         "opacity": 1.0,
         "colorType": "HEIGHT",
         "boxVisible": true
