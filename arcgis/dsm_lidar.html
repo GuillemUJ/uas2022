@@ -2,19 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-    <title>UAS 2022 - 2D</title>
+    <title>UAS 2022 - DSM and LiDAR</title>
 
     <!-- Bootstrap + Ollie main styles -->
 	<link rel="stylesheet" href="assets/css/ollie.css">
 
-    <!-- Map stuff-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-        crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-        crossorigin=""></script>
-    <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.css" />
     <style>
         body {
         padding: 0;
@@ -52,25 +44,12 @@
             </div>
         </div>
     </nav>
-    <div id="map"></div>
+    <div id="map">
+        <iframe src="https://ivv6.maps.arcgis.com/apps/Compare/index.html?appid=b46efe788ae24412969ae4a98c2a191b"></iframe>
 
-    <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.js">
-    </script>
+    </div>
 
-    <script>
-        var map = L.map('map').setView([51.944701, 7.572581], 17);
-        mapLink = 
-            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-        L.tileLayer(
-            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; ' + mapLink + ' Contributors',
-            maxZoom: 18,
-            }).addTo(map);
 
-        var imageUrl = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
-        imageBounds = [[40.712216, -74.22655], [40.773941, -74.12544]];
-        L.imageOverlay(imageUrl, imageBounds).addTo(map);
-    </script>
 
 
 
