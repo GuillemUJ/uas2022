@@ -56,6 +56,13 @@
 
     <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.js">
     </script>
+        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/geotiff@0.4.1/dist/main.js"></script>
+        <script src="https://unpkg.com/plotty@0.2.0/src/plotty.js"></script>
+        <script src="leaflet-geotiff.js"></script>
+        <!-- Load any renderer you need -->
+        <script src="leaflet-geotiff-plotty.js"></script>
+        <script src="leaflet-geotiff-vector.js"></script>
 
     <script>
         var map = L.map('map').setView([51.944701, 7.572581], 17);
@@ -70,6 +77,10 @@
         var imageUrl = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
         imageBounds = [[40.712216, -74.22655], [40.773941, -74.12544]];
         L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+        // Heree add TIFF to map:
+        // Create map
+        var layer = L.leafletGeotiff('https://geo-uas-web.uni-muenster.de/data/Orthomosaic_Multispectral.tif').addTo(map);
     </script>
 
 
