@@ -1,2 +1,5 @@
 # ignore data directory
 data/
+
+# ignore custom pointclouds
+Potree_1.8/pointclouds/
