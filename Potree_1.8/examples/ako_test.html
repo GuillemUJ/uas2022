@@ -48,7 +48,7 @@
 		viewer.loadSettingsFromURL();
 		viewer.setBackground("skybox");
 		
-		viewer.setDescription("Point cloud courtesy of <a target='_blank' href='https://www.sigeom.ch/'>sigeom sa</a>");
+		viewer.setDescription("Point cloud courtesy of <a target='_blank' href='https://copter.ifgi.de/'>GEO1copter</a>");
 		
 		viewer.loadGUI(() => {
 			viewer.setLanguage('en');
@@ -58,7 +58,7 @@
 		});
 		
 		// Load and add point cloud to scene
-		let url = "../pointclouds/out1/metadata.json"
+		let url = "../pointclouds/mundus_lidar/metadata.json"
 		Potree.loadPointCloud(url).then(e => {
 			let scene = viewer.scene;
 			let pointcloud = e.pointcloud;
